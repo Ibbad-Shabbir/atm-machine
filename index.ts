@@ -22,7 +22,7 @@ const answers = await inquirer.prompt([
   {
     type: "number",
     name: "amount",
-    message: `enter amount your desired amount: `,
+    message: `enter your desired amount (remaining balance is 500,000): `,
     when(answers) {
       return answers.transactionType == "Deposit";
     },
@@ -30,7 +30,7 @@ const answers = await inquirer.prompt([
   {
     type: "number",
     name: "amount",
-    message: `enter amount your desired amount: `,
+    message: `enter your desired amount (remaining balance is 500,000): `,
     when(answers) {
       return answers.transactionType == "Withdrawl";
     },
