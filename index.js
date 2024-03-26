@@ -67,29 +67,26 @@ else if (initial2.choice === "Login") {
             type: "list",
             message: "What would you like to do today?",
             name: "choice",
-            choices: ["Withdrawl", "Deposit", "Check Balance"],
+            choices: ["Withdrawl", "Deposit"],
         },
         {
-            type: "number",
-            message: "Enter the amount you would like to withdraw",
+            type: "input",
+            message: "Enter the amount you would like to withdraw (balance: $50,000)",
             name: "amount",
             when(answers) {
                 return answers.amount = "Withdrawl";
             },
         },
         {
-            type: "number",
-            message: "Enter the amount you would like to deposit",
+            type: "input",
+            message: "Enter the amount you would like to deposit (balance: $50,000)",
             name: "amount",
             when(answers) {
                 return answers.amount = "Deposit";
             },
         },
     ]);
-    if (login.choice === "Check Balance") {
-        console.log("your balance is $50,000");
-    }
-    else if (login.choice === "Withdrawl") {
+    if (login.choice === "Withdrawl") {
         const balance = 50000;
         const givenAmount = login.amount;
         if (balance >= givenAmount) {
