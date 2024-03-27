@@ -87,7 +87,7 @@ else if (initial2.choice === "Login") {
             },
         },
     ]);
-    if (login.choice === "Withdrawl", login.choice === "Fast Cash") {
+    if (login.choice === "Withdrawl" || login.choice === "Fast Cash") {
         const balance = 50000;
         const givenAmount = login.amount;
         if (balance >= givenAmount) {
