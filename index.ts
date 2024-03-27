@@ -71,27 +71,29 @@ if (initial2.choice === "Register") {
       type: "list",
       message: "What would you like to do today?",
       name: "choice",
-      choices: ["Withdrawl", "Deposit"],
+      choices: ["Fast Cash", "Withdrawl",],
     },
     {
-      type: "input",
-      message: "Enter the amount you would like to withdraw (balance: $50,000)",
+      type: "list",
       name: "amount",
+      choices: [250, 500, 750, 1000, 5000, 10000],
+      message: "Select amount (balance : $50,000)",
       when(answers) {
-        return answers.amount = "Withdrawl";
+        return answers.choice == "Fast Cash"
       },
     },
     {
-      type: "input",
-      message: "Enter the amount you would like to deposit (balance: $50,000)",
+      type: "number",
       name: "amount",
+      message: "Enter amount you would like to  withdraw (balance : $50,000)",
       when(answers) {
-        return answers.amount = "Deposit";
+        return answers.choice == "Withdrawl"
       },
     },
+
   ]);
 
-if (login.choice === "Withdrawl") {
+  if (login.choice === "Withdrawl", login.choice === "Fast Cash") {
     const balance = 50000;
     const givenAmount = login.amount;
     if (balance >= givenAmount) {
@@ -101,15 +103,6 @@ if (login.choice === "Withdrawl") {
       );
     } else {
       console.log("Transaction failed, Insufficient Funds");
-    }
-  } else {
-    const balance = 50000;
-    const givenAmount = login.amount;
-    if (balance <= givenAmount || balance >= givenAmount) {
-      console.log(
-        "Transaction was Successfull\n your current balance is",
-        balance + givenAmount
-      );
     }
   }
 }
